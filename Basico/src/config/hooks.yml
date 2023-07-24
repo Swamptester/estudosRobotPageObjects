@@ -1,0 +1,10 @@
+TIMEOUT:  3
+URL:  https://www.saucedemo.com/
+
+
+API:
+  URL_BASE:     https://fakerestapi.azurewebsites.net
+  ACTIVITIES:   /api/v1/Activities
+
+RESPONSE:   ""
+RESPONSEID:   ""

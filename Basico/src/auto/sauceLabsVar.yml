@@ -1,0 +1,31 @@
+# sauceLabsVar.yml
+
+
+  LOGIN:
+    Title:  //div[@class='login_logo']
+    TitleText:  Swag Labs
+    User:   //input[contains(@placeholder,'Username')]
+    UserText: standard_user
+    PWD:    //input[contains(@placeholder,'Password')]
+    PWDText:  secret_sauce
+    BTLogin:  login-button
+
+  MENUPRINCIPAL:
+    Title:    //span[@class='title'][contains(.,'Products')]
+    ProdTitle:  //div[@class='inventory_item_name'][contains(.,'Sauce Labs Backpack')]
+    ProdTitleText:  Products
+    BTMenu:   react-burger-menu-btn
+    OPAbout:  about_sidebar_link
+
+
+  DETALHEDOPRODUTO:
+    BTVoltar:   back-to-products
+    BTAdicionarProd:  add-to-cart-sauce-labs-backpack
+    BTRemoverProd:  remove-sauce-labs-backpack
+    ClicarBotaoCarrinho:  //a[@class='shopping_cart_link'][contains(.,'1')]
+
+  CARRINHO: 
+    ProdCarrinho:   //div[@class='inventory_item_name'][contains(.,'Sauce Labs Backpack')]
+
+  EXTERNALSITE:
+    BTGetStartedFree: //button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedAccentGreen MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedAccentGreen MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButton-fullWidth css-as8hpy'][contains(.,'Get started free')]

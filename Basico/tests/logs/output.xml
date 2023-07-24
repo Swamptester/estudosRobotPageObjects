@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.4 on win32)" generated="20230720 11:11:57.174" rpa="false" schemaversion="4">
+<suite id="s1" name="terceiroScriptTest" source="C:\ProjetosRobot\treinamentoRobot\Basico\tests\features\terceiroScriptTest.robot">
+<test id="s1-t1" name="Buscar um atividade especifica" line="15">
+<kw name="Requisitar a atividade &quot;15&quot;" library="API_kw" sourcename="Requisitar a atividade &quot;${id}&quot;">
+<kw name="GET" library="RequestsLibrary">
+<var>${resp}</var>
+<arg>${API.URL_BASE}${API.ACTIVITIES}/${id}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20230720 11:11:58.808" level="INFO">GET Request : url=https://fakerestapi.azurewebsites.net/api/v1/Activities/15 
+ path_url=/api/v1/Activities/15 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230720 11:11:58.808" level="INFO">GET Response : url=https://fakerestapi.azurewebsites.net/api/v1/Activities/15 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8; v=1.0', 'Date': 'Thu, 20 Jul 2023 14:11:58 GMT', 'Server': 'Kestrel', 'Transfer-Encoding': 'chunked', 'api-supported-versions': '1.0'} 
+ body={"id":15,"title":"Activity 15","dueDate":"2023-07-21T05:11:58.6866077+00:00","completed":false} 
+ </msg>
+<msg timestamp="20230720 11:11:58.808" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230720 11:11:57.626" endtime="20230720 11:11:58.808"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RESPONSEID}</arg>
+<arg>${resp}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230720 11:11:58.809" level="INFO">${RESPONSEID} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230720 11:11:58.809" endtime="20230720 11:11:58.809"/>
+</kw>
+<status status="PASS" starttime="20230720 11:11:57.625" endtime="20230720 11:11:58.809"/>
+</kw>
+<kw name="Conferir o status code" library="API_kw">
+<arg>200</arg>
+<arg>${RESPONSEID}</arg>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status}</arg>
+<arg>${respglobal}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230720 11:11:58.811" endtime="20230720 11:11:58.812"/>
+</kw>
+<status status="PASS" starttime="20230720 11:11:58.810" endtime="20230720 11:11:58.812"/>
+</kw>
+<kw name="Conferir o reason" library="API_kw">
+<arg>OK</arg>
+<arg>${RESPONSEID}</arg>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${status}</arg>
+<arg>${respglobal.reason}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230720 11:11:58.813" endtime="20230720 11:11:58.814"/>
+</kw>
+<status status="PASS" starttime="20230720 11:11:58.812" endtime="20230720 11:11:58.814"/>
+</kw>
+<kw name="Conferir se retorna todos os dados corretos da atividade &quot;15&quot;" library="API_kw" sourcename="Conferir se retorna todos os dados corretos da atividade &quot;${id}&quot;">
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${id}</var>
+<arg>${id}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230720 11:11:58.816" level="INFO">${id} = 15</msg>
+<status status="PASS" starttime="20230720 11:11:58.815" endtime="20230720 11:11:58.816"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${id}</arg>
+<arg>${RESPONSEID.json()}[id]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230720 11:11:58.816" endtime="20230720 11:11:58.817"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>Activity ${id}</arg>
+<arg>${RESPONSEID.json()}[title]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230720 11:11:58.817" endtime="20230720 11:11:58.819"/>
+</kw>
+<status status="PASS" starttime="20230720 11:11:58.815" endtime="20230720 11:11:58.819"/>
+</kw>
+<tag>Atividade</tag>
+<status status="PASS" starttime="20230720 11:11:57.624" endtime="20230720 11:11:58.820"/>
+</test>
+<doc>Aqui estarão os cenários dos testes de API</doc>
+<status status="PASS" starttime="20230720 11:11:57.176" endtime="20230720 11:11:58.822"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Atividade</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="terceiroScriptTest">terceiroScriptTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
